@@ -1,0 +1,59 @@
+{% include 'header.html' %}
+{% for games in games %}
+    
+    
+    <form method="post" action="/update" enctype="multipart/form-data">
+        
+        <div class="card">
+            <div class="card-header">
+                Editar info de Titulo
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Datos del titulo</h5>
+                <p class="card-text">
+
+
+                    <div class="form-group">
+                        
+                        <input id="txtCodigo" value = "{{ games[0] }}" class="form-control" type="hidden" name="txtCodigo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtNombre">Nombre:</label>
+                        <input id="txtNombre" value = "{{ games[1] }}" class="form-control" type="text" name="txtNombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtPrecio">Precio:</label>
+                        <input id="txtPrecio" value = "{{ games[2] }}" class="form-control" type="text" name="txtPrecio">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtGenero">Genero:</label>
+                        <input id="txtGenero" value = "{{ games[3] }}" class="form-control" type="text" name="txtGenero">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtAnio">Año:</label>
+                        <input id="txtAnio" value = "{{ games[5] }}" class="form-control" type="text" name="txtAnio">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtFoto">Portada:</label>
+                        <img class="img-thumbnail" width="100" src="{{ url_for('images', nombreFoto = games[4]) }}" alt="">
+                        <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Aceptar">
+                        <a href="{{ url_for('index') }}" class="btn btn-primary">Regresar</a>
+                    </div>
+                </p>
+            </div>
+        </div>
+
+       
+    </form>
+
+{% endfor %}
+{% include 'footer.html' %}

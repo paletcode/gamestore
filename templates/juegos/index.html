@@ -1,0 +1,40 @@
+
+    {% include 'header.html' %}
+    <br/>
+    <a href="{{url_for('create')}}" class="btn btn-success">Ingresar nuevo Titulo</a>
+    <br/>
+    <br/>
+    <table class="table table-light">
+        <thead class="thead-dark">
+            <tr>
+                <th>Portada</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Año</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for games in games %}
+                
+           
+            <tr>
+                <td>
+                    <img class="img-thumbnail" width="100" src="images/{{games[0]}}" alt="">
+                    </td>
+                <td>{{games[1]}}</td>
+                <td>{{games[2]}}</td>
+                <td>{{games[3]}}</td>
+                <td>{{games[4]}}</td>
+                <td>{{games[5]}}$</td>
+                <td><a href="/edit/{{games[1]}}" class="btn btn-warning">Editar</a> | 
+                    <a onclick="return confirm('Desea borrar el registro?')" href="/destroy/{{games[1]}}" class="btn btn-danger">Eliminar</a>                   
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% include 'footer.html' %}

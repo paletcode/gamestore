@@ -1,0 +1,65 @@
+
+{% include 'header.html' %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="alert alert-danger" role="alert">
+        {% for message in messages  %}
+            {{message}}
+        {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}}
+<form method="post" action="/store" enctype="multipart/form-data">
+    <br>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            Ingreso del Titulo
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Datos del Titulo</h5>
+            <p class="card-text">
+                <div class="form-group">
+                    <label for="txtCodigo">Código:</label>
+                    <input id="txtCodigo" class="form-control" type="text" name="txtCodigo">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="txtNombre">Nombre:</label>
+                    <input id="txtNombre" class="form-control" type="text" name="txtNombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtPrecio">Precio:</label>
+                    <input id="txtPrecio" class="form-control" type="text" name="txtPrecio">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtGenero">Genero:</label>
+                    <input id="txtGenero" class="form-control" type="text" name="txtGenero">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtAnio">Año:</label>
+                    <input id="txtAnio" class="form-control" type="text" name="txtAnio">
+                </div>
+
+                <div class="form-group">
+                    <label for="txtFoto">Portada:</label>
+                    <input id="txtFoto" class="form-control" type="file" name="txtFoto">
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success"  value="Agregar">
+                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>
+                </div>
+
+
+            </p>
+        </div>
+    </div>
+
+    
+</form>
+{% include 'footer.html' %}
